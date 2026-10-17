@@ -17,23 +17,3 @@ python3 -m http.server 8000
 ```
 
 Visit <http://localhost:8000>. Mermaid loads from a pinned public CDN and needs internet access. If it cannot load, each diagram remains available as readable source. The guide content itself requires neither JavaScript nor a network connection.
-
-## Update the guide
-
-Edit `guide.md`, then regenerate the page:
-
-```sh
-python3 scripts/build.py
-```
-
-Commit both the Markdown and regenerated HTML. Python's standard library is sufficient; there are no packages to install. The small renderer supports the Markdown constructs used in this guide; extend it if you introduce other Markdown syntax.
-
-## Publish to GitHub Pages
-
-1. Push these files to the branch you want to publish.
-2. In the GitHub repository, open **Settings → Pages**.
-3. Under **Build and deployment**, select **Deploy from a branch**.
-4. Select your branch and **/ (root)**, then save.
-5. Open the site URL shown by GitHub once deployment completes.
-
-All asset links are relative, so the page supports a repository subpath such as `/sdd-overview/`. The `.nojekyll` file keeps this a plain static site. No Sites hosting or GitHub Actions workflow is required.
